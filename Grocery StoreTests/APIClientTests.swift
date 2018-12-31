@@ -7,7 +7,7 @@ class ApiClientMock: APIClient {
     
     func testResponseFailure(completion: @escaping () -> Void) {
         
-        guard let url = URL(string: "http://apilayer123.net/api/live") else {
+        guard let url = URL(string: "http://apilayerWrongURL.net/api/live") else {
             return
         }
         

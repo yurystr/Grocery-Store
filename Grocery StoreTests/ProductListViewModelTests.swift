@@ -9,8 +9,8 @@ class ProductListViewModelTests: XCTestCase {
     
     func testCheckout() {
         let basket = Basket()
-        let product = Product(identifier: "1", title: "Test 1", price: 1, unitOfMeasure: "Test 1")
-        basket.productList = ProductList(products: [product], currency: "Test")
+        let product = Product(identifier: "1", title: "Test 1", price: 1, unitOfMeasure: "Test UoM")
+        basket.productList = ProductList(products: [product], currency: "Test currency")
         
         let viewModel = ProductListViewModel(basket: basket)
         basket.update(count: 10, for: product)
@@ -25,8 +25,8 @@ class ProductListViewModelTests: XCTestCase {
     
     func testCheckoutEnabled() {
         let basket = Basket()
-        let product = Product(identifier: "1", title: "Test 1", price: 1, unitOfMeasure: "Test 1")
-        basket.productList = ProductList(products: [product], currency: "Test")
+        let product = Product(identifier: "1", title: "Test 1", price: 1, unitOfMeasure: "Test UoM")
+        basket.productList = ProductList(products: [product], currency: "Test currency")
         
         let viewModel = ProductListViewModel(basket: basket)
         basket.update(count: 10, for: product)

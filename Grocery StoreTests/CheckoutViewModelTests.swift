@@ -4,7 +4,7 @@ import XCTest
 class CheckoutViewModelTests: XCTestCase {
     func testTotalText() {
         let basket = Basket()
-        let product = Product(identifier: "1", title: "Test 1", price: 1, unitOfMeasure: "Test 1")
+        let product = Product(identifier: "1", title: "Test 1", price: 1, unitOfMeasure: "Test UoM")
         basket.productList = ProductList(products: [product], currency: "Test currency")
         basket.update(count: 10, for: product)
         

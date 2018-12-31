@@ -17,7 +17,7 @@ class ProductViewModelTests: XCTestCase {
     func testCount() {
         let product = Product(identifier: "1", title: "Test 1", price: 1, unitOfMeasure: "Test UoM")
         let viewModel = ProductViewModel(product: product, currency: "Test currency")
-        viewModel.countChanged(count: 10)
+        viewModel.changeCount(count: 10)
         XCTAssertEqual(viewModel.countText, "10")
     }
 }
