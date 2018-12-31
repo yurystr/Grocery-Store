@@ -1,0 +1,17 @@
+{
+    "currency": "USD",
+    "productsCorrupted" : [
+                  {
+                  "identifier": "1",
+                  "title": "1",
+                  "price": 0.00,
+                  "unitOfMeasure": "bag"
+                  },
+                  {
+                  "identifier": "2",
+                  "title": "2",
+                  "price": 1.00,
+                  "unitOfMeasure": "dozen"
+                  }
+                  ]
+}

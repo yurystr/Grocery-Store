@@ -1,0 +1,29 @@
+{
+    "currency": "USD",
+    "products" : [
+                  {
+                  "identifier": "1",
+                  "title": "Peas",
+                  "price": 0.95,
+                  "unitOfMeasure": "bag"
+                  },
+                  {
+                  "identifier": "2",
+                  "title": "Eggs",
+                  "price": 2.10,
+                  "unitOfMeasure": "dozen"
+                  },
+                  {
+                  "identifier": "3",
+                  "title": "Milk",
+                  "price": 1.30,
+                  "unitOfMeasure": "bottle"
+                  },
+                  {
+                  "identifier": "4",
+                  "title": "Beans",
+                  "price": 0.73,
+                  "unitOfMeasure": "can"
+                  }
+                  ]
+}
