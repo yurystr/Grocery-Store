@@ -1,3 +1,3 @@
 # Grocery-Store
 
-A sample project featuring MVVM architecture and corresponding unit tests
+A sample project featuring MVVM architecture and accompanying unit tests
