@@ -8,9 +8,9 @@ class CheckoutViewModel {
     
     var totalText: String {
         if let currency = selectedCurrency {
-            let converted = basket.getTotalSum() * currency.rate
-            let converterString = converted.toStringTruncated()
-            return Constants.yourTotal + " " + converterString + " " + currency.title
+            let converted = CurrencyConverter.convert(sum: basket.getTotalSum(), rate: currency.rate)
+            let convertedString = converted.toStringTruncated()
+            return Constants.yourTotal + " " + convertedString + " " + currency.title
         } else {
             return Constants.yourTotal + " " + "\(basket.getTotalSum())" + " " + basket.getCurrency()
         }
@@ -27,19 +27,19 @@ class CheckoutViewModel {
     var currencyViewModels = [CurrencyViewModel]()
     
     private var basket: BasketProtocol
-    private var currencyConverter: CurrencyConverterProtocol?
+    private var currencyList: CurrencyListProtocol?
     private var selectedCurrency: Currency?
     
-    init(basket: BasketProtocol, currencyConverter: CurrencyConverterProtocol? = nil) {
+    init(basket: BasketProtocol, currencyList: CurrencyListProtocol? = nil) {
         self.basket = basket
-        self.currencyConverter = currencyConverter
+        self.currencyList = currencyList
     }
     
     func loadData() {
-        CurrencyConverterClient().getConverter { [weak self] result in
+        CurrencyListClient().getCurrencyList { [weak self] result in
             switch result {
-            case .success(let converter):
-                self?.currencyConverter = converter
+            case .success(let currencyList):
+                self?.currencyList = currencyList
                 self?.buildViewModels()
             case .failure(let error):
                 self?.onDataFailed?(error.localizedDescription)
@@ -54,13 +54,13 @@ class CheckoutViewModel {
     
     // MARK: - Private methods
     private func buildViewModels() {
-        guard let currencyConverter = currencyConverter else {
+        guard let currencyList = currencyList else {
             return
         }
         
         currencyViewModels = []
-        for (currency, rate) in currencyConverter.quotes {
-            let currencyTruncated = self.truncatedCurrencyString(from: currency, source: currencyConverter.source)
+        for (currency, rate) in currencyList.quotes {
+            let currencyTruncated = self.truncatedCurrencyString(from: currency, source: currencyList.source)
             let currencyViewModel = CurrencyViewModel(currency: Currency(title: currencyTruncated, rate: rate))
             currencyViewModels.append(currencyViewModel)
         }

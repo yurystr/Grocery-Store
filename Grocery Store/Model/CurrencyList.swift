@@ -1,11 +1,11 @@
 import Foundation
 
-protocol CurrencyConverterProtocol {
+protocol CurrencyListProtocol {
     var source: String { get set }
     var quotes: [String: Decimal] { get set }
 }
 
-class CurrencyConverter: Decodable, CurrencyConverterProtocol {
+class CurrencyList: Decodable, CurrencyListProtocol {
     var source: String
     var quotes: [String: Decimal]
 }
