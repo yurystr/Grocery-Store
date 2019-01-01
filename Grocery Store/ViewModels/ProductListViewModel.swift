@@ -60,12 +60,8 @@ class ProductListViewModel {
         for product in products {
             let productViewModel = ProductViewModel(product: product, currency: currency)
             productViewModel.onCountChanged = { [weak self] count in
-                guard let `self` = self else {
-                    return
-                }
-                
-                self.basket.update(count: count, for: product)
-                self.onTotalUpdated?()
+                self?.basket.update(count: count, for: product)
+                self?.onTotalUpdated?()
             }
             productViewModels.append(productViewModel)
         }
