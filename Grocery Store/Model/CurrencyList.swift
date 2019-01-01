@@ -5,7 +5,7 @@ protocol CurrencyListProtocol {
     var quotes: [String: Decimal] { get set }
 }
 
-class CurrencyList: Decodable, CurrencyListProtocol {
+struct CurrencyList: Decodable, CurrencyListProtocol {
     var source: String
     var quotes: [String: Decimal]
 }
